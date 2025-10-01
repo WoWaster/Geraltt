@@ -23,7 +23,6 @@ impl ScheduleGetter for Client {
             .flat_map(|user| &user.watch_educators)
             .cloned()
             .collect::<BTreeSet<_>>();
-        /* Collect new info from timetable about all watched educators */
         let educator_events_new = future::join_all(
             watched_educators
                 .into_iter()
